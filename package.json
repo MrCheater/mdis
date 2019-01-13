@@ -1,0 +1,40 @@
+{
+  "name": "mdis",
+  "version": "0.0.1",
+  "description": "Markdown include source",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "bin": {
+    "mdis": "bin/mdis.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrCheater/mdis.git"
+  },
+  "keywords": [
+    "markdown",
+    "embed",
+    "embedded",
+    "javascript",
+    "npm",
+    "utils"
+  ],
+  "author": "Mr.Cheater (Anton Zhukov)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrCheater/mdis/issues"
+  },
+  "homepage": "https://github.com/MrCheater/mdis#readme",
+  "dependencies": {
+    "glob": "7.1.3",
+    "javascript-state-machine": "3.1.0",
+    "yargs": "12.0.5"
+  },
+  "devDependencies": {
+    "jest": "23.6.0"
+  }
+}
