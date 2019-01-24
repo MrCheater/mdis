@@ -1,4 +1,26 @@
-const { Lexemes, LexerRules } = require('./constants');
+const Lexemes = {
+  UNKNOWN: 'unknown',
+  EOL: 'eol', // \n \r \r\n
+  SINGLE_QUOTE: 'singleQuote', // '
+  DOUBLE_QUOTE: 'doubleQuote', // "
+  BACK_TICK: 'backTick', // `
+  BACK_SLASH: 'backSlash', // \
+  START_SINGLE_LINE_COMMENT: 'startSingleLineComment', // //
+  START_MULTI_LINE_COMMENT: 'startMultiLineComment', // /*
+  END_MULTI_LINE_COMMENT: 'endMultiLineComment' // */
+};
+
+const LexerRules = [
+  { string: '\r\n', lexeme: Lexemes.EOL },
+  { string: '\n', lexeme: Lexemes.EOL },
+  { string: '\\', lexeme: Lexemes.BACK_SLASH },
+  { string: "'", lexeme: Lexemes.SINGLE_QUOTE },
+  { string: '"', lexeme: Lexemes.DOUBLE_QUOTE },
+  { string: '`', lexeme: Lexemes.BACK_TICK },
+  { string: '//', lexeme: Lexemes.START_SINGLE_LINE_COMMENT },
+  { string: '/*', lexeme: Lexemes.START_MULTI_LINE_COMMENT },
+  { string: '*/', lexeme: Lexemes.END_MULTI_LINE_COMMENT }
+];
 
 function lexer(source) {
   let items = [
@@ -65,5 +87,7 @@ function lexer(source) {
 }
 
 module.exports = {
-  lexer
+  lexer,
+  Lexemes,
+  LexerRules
 };

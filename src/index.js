@@ -1,5 +1,4 @@
 const fs = require('fs');
-const StateMachine = require('javascript-state-machine');
 
 const { lexer } = require('./lexer');
 

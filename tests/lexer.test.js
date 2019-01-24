@@ -8,6 +8,12 @@ test('lexer should return lexemes', async () => {
 	var str4 = "dsada"
 	var str5 = \`\`
 	var str6 = \`dsada\`
+	var str7 = ' \
+	 1\
+	 2\
+	 3'
+	 
+	var num = 23
 	
 	console.log(42)
 `;
