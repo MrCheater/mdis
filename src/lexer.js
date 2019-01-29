@@ -26,7 +26,9 @@ function lexer(source) {
   let items = [
     {
       lexeme: Lexemes.UNKNOWN,
-      source
+      source,
+      start: { column: 1 },
+      end: { column: source.length }
     }
   ];
   let nextItems = [];
@@ -58,13 +60,17 @@ function lexer(source) {
         if (source !== '') {
           nextItems.push({
             lexeme: Lexemes.UNKNOWN,
-            source
+            source,
+            start: { column: item.start.column + fromIndex },
+            end: { column: item.start.column + position }
           });
         }
 
         nextItems.push({
           lexeme: rule.lexeme,
-          source: rule.string
+          source: rule.string,
+          start: { column: item.start.column + position },
+          end: { column: item.start.column + position + rule.string.length }
         });
 
         fromIndex = position + rule.string.length;
@@ -74,13 +80,33 @@ function lexer(source) {
       if (source !== '') {
         nextItems.push({
           lexeme: Lexemes.UNKNOWN,
-          source
+          source,
+          start: { column: item.start.column + fromIndex },
+          end: { column: item.start.column + item.source.length }
         });
       }
     }
 
     items = nextItems;
     nextItems = [];
+  }
+
+  let line = 1;
+  let eolEnd = 0;
+  for (const item of items) {
+    item.start.line = line;
+    item.end.line = line;
+    if (item.lexeme === Lexemes.EOL) {
+      line++;
+      let prevEolEnd = eolEnd;
+      eolEnd = item.end.column - 1;
+
+      item.start.column -= prevEolEnd;
+      item.end.column -= prevEolEnd;
+      continue;
+    }
+    item.start.column -= eolEnd;
+    item.end.column -= eolEnd;
   }
 
   return items;

@@ -6,7 +6,7 @@ const { parse } = require('../src/index');
 test('named-block should works correctly', async () => {
   console.log(
     JSON.stringify(
-      await parse(path.join(__dirname, 'named-blocks.js')),
+      await parse(path.join(__dirname, 'files', 'named-blocks.js')),
       null,
       2
     )

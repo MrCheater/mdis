@@ -640,8 +640,14 @@ const parser = items => {
   let state = States.S0;
 
   const tokens = [];
-  let item = { source: '', string: '', token: Tokens.UNKNOWN };
-  for (const { lexeme, source } of items) {
+  let item = {
+    source: '',
+    string: '',
+    token: Tokens.UNKNOWN,
+    start: { line: 1, column: 1 },
+    end: { line: 1, column: 1 }
+  };
+  for (const { lexeme, source, start, end } of items) {
     prevState = state;
     state = transitions[prevState][lexeme].to;
 
@@ -650,12 +656,16 @@ const parser = items => {
       item = {
         source: '',
         string: '',
-        token: transitions[state][lexeme].token
+        token: transitions[state][lexeme].token,
+        start: { line: start.line, column: start.column },
+        end: { line: end.line, column: end.column }
       };
     }
 
     item.source += source;
     item.string += source;
+    item.end.line = end.line;
+    item.end.column = end.column;
   }
   tokens.push(normalize(item));
 
