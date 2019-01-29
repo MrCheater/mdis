@@ -12,6 +12,48 @@ class NamedBlocks extends React.PureComponent {
 
   // mdis-start render
   render() {
+    /*
+      Multi Line Comment
+      Test test test
+    */
+
+    let str;
+    str = 'abc';
+    str = '\n';
+    str = '"""';
+    str = '```';
+    str = '';
+    str = ' ';
+    str = "'";
+    str = '"';
+    str = '`';
+    str = '\
+    ';
+    str = 'abc';
+    str = '\n';
+    str = "'''";
+    str = '```';
+    str = '';
+    str = ' ';
+    str = "'";
+    str = '"';
+    str = '`';
+    str = '\
+    ';
+    str = `abc`;
+    str = `\n`;
+    str = `'''`;
+    str = `"""`;
+    str = ``;
+    str = ` `;
+    str = `\'`;
+    str = `\"`;
+    str = `\``;
+    str = `\
+    `;
+    str = `
+    `;
+
     return <div>Sample</div>;
   }
   // mdis-stop render

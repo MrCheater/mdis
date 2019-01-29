@@ -1,13 +1,13 @@
 const Lexemes = {
-  UNKNOWN: 'unknown',
-  EOL: 'eol', // \n \r \r\n
-  SINGLE_QUOTE: 'singleQuote', // '
-  DOUBLE_QUOTE: 'doubleQuote', // "
-  BACK_TICK: 'backTick', // `
-  BACK_SLASH: 'backSlash', // \
-  START_SINGLE_LINE_COMMENT: 'startSingleLineComment', // //
-  START_MULTI_LINE_COMMENT: 'startMultiLineComment', // /*
-  END_MULTI_LINE_COMMENT: 'endMultiLineComment' // */
+  UNKNOWN: 'UNKNOWN',
+  EOL: 'EOL', // \n \r \r\n
+  SINGLE_QUOTE: 'SINGLE_QUOTE', // '
+  DOUBLE_QUOTE: 'DOUBLE_QUOTE', // "
+  BACK_TICK: 'BACK_TICK', // `
+  BACK_SLASH: 'BACK_SLASH', // \
+  START_SINGLE_LINE_COMMENT: 'START_SINGLE_LINE_COMMENT', // //
+  START_MULTI_LINE_COMMENT: 'START_MULTI_LINE_COMMENT', // /*
+  END_MULTI_LINE_COMMENT: 'END_MULTI_LINE_COMMENT' // */
 };
 
 const LexerRules = [
@@ -26,7 +26,7 @@ function lexer(source) {
   let items = [
     {
       lexeme: Lexemes.UNKNOWN,
-      string: source
+      source
     }
   ];
   let nextItems = [];
@@ -49,32 +49,32 @@ function lexer(source) {
         position = 0;
       while (true) {
         prevPosition = position;
-        position = item.string.indexOf(rule.string, fromIndex);
+        position = item.source.indexOf(rule.string, fromIndex);
         if (position === -1) {
           break;
         }
 
-        const string = item.string.substring(fromIndex, position);
-        if (string !== '') {
+        const source = item.source.substring(fromIndex, position);
+        if (source !== '') {
           nextItems.push({
             lexeme: Lexemes.UNKNOWN,
-            string
+            source
           });
         }
 
         nextItems.push({
           lexeme: rule.lexeme,
-          string: rule.string
+          source: rule.string
         });
 
         fromIndex = position + rule.string.length;
       }
 
-      const string = item.string.substring(fromIndex, item.string.length);
-      if (string !== '') {
+      const source = item.source.substring(fromIndex, item.source.length);
+      if (source !== '') {
         nextItems.push({
           lexeme: Lexemes.UNKNOWN,
-          string
+          source
         });
       }
     }
