@@ -1,0 +1,489 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractStrings "named-blocks.js" 1`] = `
+Array [
+  Object {
+    "end": Object {
+      "column": 26,
+      "line": 2,
+    },
+    "source": "'react'",
+    "start": Object {
+      "column": 19,
+      "line": 2,
+    },
+    "string": "react",
+  },
+]
+`;
+
+exports[`extractStrings "simple.js" 1`] = `Array []`;
+
+exports[`extractStrings "strings-and-comments.js" 1`] = `
+Array [
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 8,
+    },
+    "source": "'abc'",
+    "start": Object {
+      "column": 7,
+      "line": 8,
+    },
+    "string": "abc",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 9,
+    },
+    "source": "'\\\\n'",
+    "start": Object {
+      "column": 7,
+      "line": 9,
+    },
+    "string": "\\\\n",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 10,
+    },
+    "source": "'\\\\\\\\'",
+    "start": Object {
+      "column": 7,
+      "line": 10,
+    },
+    "string": "\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 13,
+      "line": 11,
+    },
+    "source": "'\\\\\\\\\\\\\\\\'",
+    "start": Object {
+      "column": 7,
+      "line": 11,
+    },
+    "string": "\\\\\\\\\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 13,
+      "line": 12,
+    },
+    "source": "'\\\\\\\\\\\\\\\\'",
+    "start": Object {
+      "column": 7,
+      "line": 12,
+    },
+    "string": "\\\\\\\\\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 13,
+    },
+    "source": "'\\"\\"\\"'",
+    "start": Object {
+      "column": 7,
+      "line": 13,
+    },
+    "string": "\\"\\"\\"",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 14,
+    },
+    "source": "'\`\`\`'",
+    "start": Object {
+      "column": 7,
+      "line": 14,
+    },
+    "string": "\`\`\`",
+  },
+  Object {
+    "end": Object {
+      "column": 9,
+      "line": 15,
+    },
+    "source": "''",
+    "start": Object {
+      "column": 7,
+      "line": 15,
+    },
+    "string": "",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 16,
+    },
+    "source": "' '",
+    "start": Object {
+      "column": 7,
+      "line": 16,
+    },
+    "string": " ",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 17,
+    },
+    "source": "\\"'\\"",
+    "start": Object {
+      "column": 7,
+      "line": 17,
+    },
+    "string": "'",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 18,
+    },
+    "source": "'\\"'",
+    "start": Object {
+      "column": 7,
+      "line": 18,
+    },
+    "string": "\\"",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 19,
+    },
+    "source": "'\`'",
+    "start": Object {
+      "column": 7,
+      "line": 19,
+    },
+    "string": "\`",
+  },
+  Object {
+    "end": Object {
+      "column": 2,
+      "line": 21,
+    },
+    "source": "'\\\\
+'",
+    "start": Object {
+      "column": 7,
+      "line": 20,
+    },
+    "string": "\\\\
+",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 24,
+    },
+    "source": "\\"abc\\"",
+    "start": Object {
+      "column": 7,
+      "line": 24,
+    },
+    "string": "abc",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 25,
+    },
+    "source": "\\"\\\\n\\"",
+    "start": Object {
+      "column": 7,
+      "line": 25,
+    },
+    "string": "\\\\n",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 26,
+    },
+    "source": "\\"\\\\\\\\\\"",
+    "start": Object {
+      "column": 7,
+      "line": 26,
+    },
+    "string": "\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 13,
+      "line": 27,
+    },
+    "source": "\\"\\\\\\\\\\\\\\\\\\"",
+    "start": Object {
+      "column": 7,
+      "line": 27,
+    },
+    "string": "\\\\\\\\\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 28,
+    },
+    "source": "\\"'''\\"",
+    "start": Object {
+      "column": 7,
+      "line": 28,
+    },
+    "string": "'''",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 29,
+    },
+    "source": "\\"\`\`\`\\"",
+    "start": Object {
+      "column": 7,
+      "line": 29,
+    },
+    "string": "\`\`\`",
+  },
+  Object {
+    "end": Object {
+      "column": 9,
+      "line": 30,
+    },
+    "source": "\\"\\"",
+    "start": Object {
+      "column": 7,
+      "line": 30,
+    },
+    "string": "",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 31,
+    },
+    "source": "\\" \\"",
+    "start": Object {
+      "column": 7,
+      "line": 31,
+    },
+    "string": " ",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 32,
+    },
+    "source": "\\"'\\"",
+    "start": Object {
+      "column": 7,
+      "line": 32,
+    },
+    "string": "'",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 33,
+    },
+    "source": "\\"\\\\\\"\\"",
+    "start": Object {
+      "column": 7,
+      "line": 33,
+    },
+    "string": "\\\\\\"",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 34,
+    },
+    "source": "\\"\`\\"",
+    "start": Object {
+      "column": 7,
+      "line": 34,
+    },
+    "string": "\`",
+  },
+  Object {
+    "end": Object {
+      "column": 2,
+      "line": 36,
+    },
+    "source": "\\"\\\\
+\\"",
+    "start": Object {
+      "column": 7,
+      "line": 35,
+    },
+    "string": "\\\\
+",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 39,
+    },
+    "source": "\`abc\`",
+    "start": Object {
+      "column": 7,
+      "line": 39,
+    },
+    "string": "abc",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 40,
+    },
+    "source": "\`\\\\n\`",
+    "start": Object {
+      "column": 7,
+      "line": 40,
+    },
+    "string": "\\\\n",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 41,
+    },
+    "source": "\`\\\\\\\\\`",
+    "start": Object {
+      "column": 7,
+      "line": 41,
+    },
+    "string": "\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 13,
+      "line": 42,
+    },
+    "source": "\`\\\\\\\\\\\\\\\\\`",
+    "start": Object {
+      "column": 7,
+      "line": 42,
+    },
+    "string": "\\\\\\\\\\\\\\\\",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 43,
+    },
+    "source": "\`'''\`",
+    "start": Object {
+      "column": 7,
+      "line": 43,
+    },
+    "string": "'''",
+  },
+  Object {
+    "end": Object {
+      "column": 12,
+      "line": 44,
+    },
+    "source": "\`\\"\\"\\"\`",
+    "start": Object {
+      "column": 7,
+      "line": 44,
+    },
+    "string": "\\"\\"\\"",
+  },
+  Object {
+    "end": Object {
+      "column": 9,
+      "line": 45,
+    },
+    "source": "\`\`",
+    "start": Object {
+      "column": 7,
+      "line": 45,
+    },
+    "string": "",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 46,
+    },
+    "source": "\` \`",
+    "start": Object {
+      "column": 7,
+      "line": 46,
+    },
+    "string": " ",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 47,
+    },
+    "source": "\`'\`",
+    "start": Object {
+      "column": 7,
+      "line": 47,
+    },
+    "string": "'",
+  },
+  Object {
+    "end": Object {
+      "column": 10,
+      "line": 48,
+    },
+    "source": "\`\\"\`",
+    "start": Object {
+      "column": 7,
+      "line": 48,
+    },
+    "string": "\\"",
+  },
+  Object {
+    "end": Object {
+      "column": 11,
+      "line": 49,
+    },
+    "source": "\`\\\\\`\`",
+    "start": Object {
+      "column": 7,
+      "line": 49,
+    },
+    "string": "\\\\\`",
+  },
+  Object {
+    "end": Object {
+      "column": 2,
+      "line": 51,
+    },
+    "source": "\`\\\\
+\`",
+    "start": Object {
+      "column": 7,
+      "line": 50,
+    },
+    "string": "\\\\
+",
+  },
+  Object {
+    "end": Object {
+      "column": 2,
+      "line": 53,
+    },
+    "source": "\`
+\`",
+    "start": Object {
+      "column": 7,
+      "line": 52,
+    },
+    "string": "
+",
+  },
+]
+`;

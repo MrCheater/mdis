@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extractComments "named-blocks.js" 1`] = `
+Array [
+  Object {
+    "end": Object {
+      "column": 23,
+      "line": 1,
+    },
+    "source": "// mdis-start imports
+",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+    "string": "mdis-start imports",
+  },
+  Object {
+    "end": Object {
+      "column": 22,
+      "line": 3,
+    },
+    "source": "// mdis-stop imports
+",
+    "start": Object {
+      "column": 1,
+      "line": 3,
+    },
+    "string": "mdis-stop imports",
+  },
+  Object {
+    "end": Object {
+      "column": 22,
+      "line": 5,
+    },
+    "source": "// mdis-start Sample
+",
+    "start": Object {
+      "column": 1,
+      "line": 5,
+    },
+    "string": "mdis-start Sample",
+  },
+  Object {
+    "end": Object {
+      "column": 23,
+      "line": 7,
+    },
+    "source": "// mdis-stop Sample
+",
+    "start": Object {
+      "column": 3,
+      "line": 7,
+    },
+    "string": "mdis-stop Sample",
+  },
+  Object {
+    "end": Object {
+      "column": 24,
+      "line": 13,
+    },
+    "source": "// mdis-start render
+",
+    "start": Object {
+      "column": 3,
+      "line": 13,
+    },
+    "string": "mdis-start render",
+  },
+  Object {
+    "end": Object {
+      "column": 23,
+      "line": 17,
+    },
+    "source": "// mdis-stop render
+",
+    "start": Object {
+      "column": 3,
+      "line": 17,
+    },
+    "string": "mdis-stop render",
+  },
+  Object {
+    "end": Object {
+      "column": 24,
+      "line": 19,
+    },
+    "source": "// mdis-start Sample
+",
+    "start": Object {
+      "column": 3,
+      "line": 19,
+    },
+    "string": "mdis-start Sample",
+  },
+  Object {
+    "end": Object {
+      "column": 21,
+      "line": 21,
+    },
+    "source": "// mdis-stop Sample
+",
+    "start": Object {
+      "column": 1,
+      "line": 21,
+    },
+    "string": "mdis-stop Sample",
+  },
+]
+`;
+
+exports[`extractComments "simple.js" 1`] = `
+Array [
+  Object {
+    "end": Object {
+      "column": 15,
+      "line": 1,
+    },
+    "source": "// mdis-start
+",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+    "string": "mdis-start",
+  },
+  Object {
+    "end": Object {
+      "column": 14,
+      "line": 3,
+    },
+    "source": "// mdis-stop
+",
+    "start": Object {
+      "column": 1,
+      "line": 3,
+    },
+    "string": "mdis-stop",
+  },
+  Object {
+    "end": Object {
+      "column": 15,
+      "line": 8,
+    },
+    "source": "// mdis-start
+",
+    "start": Object {
+      "column": 1,
+      "line": 8,
+    },
+    "string": "mdis-start",
+  },
+  Object {
+    "end": Object {
+      "column": 14,
+      "line": 10,
+    },
+    "source": "// mdis-stop
+",
+    "start": Object {
+      "column": 1,
+      "line": 10,
+    },
+    "string": "mdis-stop",
+  },
+]
+`;
+
+exports[`extractComments "strings-and-comments.js" 1`] = `
+Array [
+  Object {
+    "end": Object {
+      "column": 3,
+      "line": 4,
+    },
+    "source": "/*
+	Multi Line Comment
+	Test test test
+*/",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+    "string": "Multi Line Comment
+	Test test test",
+  },
+  Object {
+    "end": Object {
+      "column": 24,
+      "line": 6,
+    },
+    "source": "// Single quote string
+",
+    "start": Object {
+      "column": 1,
+      "line": 6,
+    },
+    "string": "Single quote string",
+  },
+  Object {
+    "end": Object {
+      "column": 24,
+      "line": 23,
+    },
+    "source": "// Double quote string
+",
+    "start": Object {
+      "column": 1,
+      "line": 23,
+    },
+    "string": "Double quote string",
+  },
+  Object {
+    "end": Object {
+      "column": 21,
+      "line": 38,
+    },
+    "source": "// Back tick string
+",
+    "start": Object {
+      "column": 1,
+      "line": 38,
+    },
+    "string": "Back tick string",
+  },
+]
+`;

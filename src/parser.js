@@ -1,3 +1,5 @@
+const { EOL } = require('os');
+
 const { Lexemes } = require('./lexer');
 
 const Tokens = {
@@ -201,6 +203,12 @@ const ParserRules = [
     token: Tokens.SINGLE_QUOTE_STRING
   },
   {
+    lexeme: Lexemes.BACK_SLASH,
+    from: States.S2,
+    to: States.S1,
+    token: Tokens.SINGLE_QUOTE_STRING
+  },
+  {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S2,
     to: States.S1,
@@ -299,6 +307,12 @@ const ParserRules = [
   },
   {
     lexeme: Lexemes.BACK_TICK,
+    from: States.S4,
+    to: States.S3,
+    token: Tokens.DOUBLE_QUOTE_STRING
+  },
+  {
+    lexeme: Lexemes.BACK_SLASH,
     from: States.S4,
     to: States.S3,
     token: Tokens.DOUBLE_QUOTE_STRING
@@ -649,7 +663,15 @@ const parser = items => {
   };
   for (const { lexeme, source, start, end } of items) {
     prevState = state;
-    state = transitions[prevState][lexeme].to;
+    const transition = transitions[prevState][lexeme];
+    if (transition == null) {
+      throw new Error(
+        'Parser Error:' +
+          EOL +
+          JSON.stringify({ state, lexeme, source, start, end }, null, 2)
+      );
+    }
+    state = transition.to;
 
     if (item.token !== transitions[prevState][lexeme].token) {
       tokens.push(normalize(item));
