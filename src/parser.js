@@ -10,6 +10,7 @@ const Tokens = {
   SINGLE_QUOTE_STRING: 'SINGLE_QUOTE_STRING',
   DOUBLE_QUOTE_STRING: 'DOUBLE_QUOTE_STRING',
   BACK_TICK_STRING: 'BACK_TICK_STRING',
+  DOTS: 'DOTS',
   UNKNOWN: 'UNKNOWN'
 };
 
@@ -82,19 +83,22 @@ const normalize = ({ string, token, ...item }) => {
   }
 };
 
-const trim = tokens => {
-  while (tokens[0].token === Tokens.UNKNOWN && tokens[0].source === '') {
-    tokens.shift();
+const trim = parserItems => {
+  while (
+    parserItems[0].token === Tokens.UNKNOWN &&
+    parserItems[0].source === ''
+  ) {
+    parserItems.shift();
   }
 
   while (
-    tokens[tokens.length - 1].token === Tokens.UNKNOWN &&
-    tokens[tokens.length - 1].source === ''
+    parserItems[parserItems.length - 1].token === Tokens.UNKNOWN &&
+    parserItems[parserItems.length - 1].source === ''
   ) {
-    tokens.pop();
+    parserItems.pop();
   }
 
-  return tokens;
+  return parserItems;
 };
 
 const States = {
@@ -515,7 +519,7 @@ const ParserRules = [
     lexeme: Lexemes.EOL,
     from: States.S7,
     to: States.S0,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.UNKNOWN
   },
   // Multi line comment
   {
@@ -649,19 +653,20 @@ for (const { lexeme, from, to, token } of ParserRules) {
   transitions[from][lexeme] = { to, token };
 }
 
-const parser = items => {
+const parser = lexerItems => {
   let prevState;
   let state = States.S0;
 
-  const tokens = [];
-  let item = {
+  const parserItems = [];
+  let parserItem = {
     source: '',
     string: '',
     token: Tokens.UNKNOWN,
     start: { line: 1, column: 1 },
     end: { line: 1, column: 1 }
   };
-  for (const { lexeme, source, start, end } of items) {
+  for (const lexerItem of lexerItems) {
+    const { lexeme, source, start, end } = lexerItem;
     prevState = state;
     const transition = transitions[prevState][lexeme];
     if (transition == null) {
@@ -673,9 +678,9 @@ const parser = items => {
     }
     state = transition.to;
 
-    if (item.token !== transitions[prevState][lexeme].token) {
-      tokens.push(normalize(item));
-      item = {
+    if (parserItem.token !== transitions[prevState][lexeme].token) {
+      parserItems.push(normalize(parserItem));
+      parserItem = {
         source: '',
         string: '',
         token: transitions[state][lexeme].token,
@@ -684,14 +689,14 @@ const parser = items => {
       };
     }
 
-    item.source += source;
-    item.string += source;
-    item.end.line = end.line;
-    item.end.column = end.column;
+    parserItem.source += source;
+    parserItem.string += source;
+    parserItem.end.line = end.line;
+    parserItem.end.column = end.column;
   }
-  tokens.push(normalize(item));
+  parserItems.push(normalize(parserItem));
 
-  return trim(tokens);
+  return trim(parserItems);
 };
 
 module.exports = {

@@ -4,11 +4,10 @@ exports[`extractComments "named-blocks.js" 1`] = `
 Array [
   Object {
     "end": Object {
-      "column": 23,
+      "column": 22,
       "line": 1,
     },
-    "source": "// mdis-start imports
-",
+    "source": "// mdis-start imports",
     "start": Object {
       "column": 1,
       "line": 1,
@@ -17,11 +16,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 22,
+      "column": 21,
       "line": 3,
     },
-    "source": "// mdis-stop imports
-",
+    "source": "// mdis-stop imports",
     "start": Object {
       "column": 1,
       "line": 3,
@@ -30,11 +28,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 22,
+      "column": 21,
       "line": 5,
     },
-    "source": "// mdis-start Sample
-",
+    "source": "// mdis-start Sample",
     "start": Object {
       "column": 1,
       "line": 5,
@@ -43,11 +40,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 23,
+      "column": 22,
       "line": 7,
     },
-    "source": "// mdis-stop Sample
-",
+    "source": "// mdis-stop Sample",
     "start": Object {
       "column": 3,
       "line": 7,
@@ -56,53 +52,97 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 24,
+      "column": 26,
+      "line": 10,
+    },
+    "source": "// mdis-start for-i-j",
+    "start": Object {
+      "column": 5,
+      "line": 10,
+    },
+    "string": "mdis-start for-i-j",
+  },
+  Object {
+    "end": Object {
+      "column": 29,
       "line": 13,
     },
-    "source": "// mdis-start render
-",
+    "source": "// mdis-stop for-i-j",
     "start": Object {
-      "column": 3,
+      "column": 9,
       "line": 13,
+    },
+    "string": "mdis-stop for-i-j",
+  },
+  Object {
+    "end": Object {
+      "column": 30,
+      "line": 15,
+    },
+    "source": "// mdis-start for-i-j",
+    "start": Object {
+      "column": 9,
+      "line": 15,
+    },
+    "string": "mdis-start for-i-j",
+  },
+  Object {
+    "end": Object {
+      "column": 25,
+      "line": 18,
+    },
+    "source": "// mdis-stop for-i-j",
+    "start": Object {
+      "column": 5,
+      "line": 18,
+    },
+    "string": "mdis-stop for-i-j",
+  },
+  Object {
+    "end": Object {
+      "column": 22,
+      "line": 22,
+    },
+    "source": "// mdis-start render",
+    "start": Object {
+      "column": 2,
+      "line": 22,
     },
     "string": "mdis-start render",
   },
   Object {
     "end": Object {
-      "column": 23,
-      "line": 17,
+      "column": 22,
+      "line": 26,
     },
-    "source": "// mdis-stop render
-",
+    "source": "// mdis-stop render",
     "start": Object {
       "column": 3,
-      "line": 17,
+      "line": 26,
     },
     "string": "mdis-stop render",
   },
   Object {
     "end": Object {
-      "column": 24,
-      "line": 19,
+      "column": 23,
+      "line": 28,
     },
-    "source": "// mdis-start Sample
-",
+    "source": "// mdis-start Sample",
     "start": Object {
       "column": 3,
-      "line": 19,
+      "line": 28,
     },
     "string": "mdis-start Sample",
   },
   Object {
     "end": Object {
-      "column": 21,
-      "line": 21,
+      "column": 20,
+      "line": 30,
     },
-    "source": "// mdis-stop Sample
-",
+    "source": "// mdis-stop Sample",
     "start": Object {
       "column": 1,
-      "line": 21,
+      "line": 30,
     },
     "string": "mdis-stop Sample",
   },
@@ -113,11 +153,10 @@ exports[`extractComments "simple.js" 1`] = `
 Array [
   Object {
     "end": Object {
-      "column": 15,
+      "column": 14,
       "line": 1,
     },
-    "source": "// mdis-start
-",
+    "source": "// mdis-start",
     "start": Object {
       "column": 1,
       "line": 1,
@@ -126,11 +165,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 14,
+      "column": 13,
       "line": 3,
     },
-    "source": "// mdis-stop
-",
+    "source": "// mdis-stop",
     "start": Object {
       "column": 1,
       "line": 3,
@@ -139,11 +177,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 15,
+      "column": 14,
       "line": 8,
     },
-    "source": "// mdis-start
-",
+    "source": "// mdis-start",
     "start": Object {
       "column": 1,
       "line": 8,
@@ -152,11 +189,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 14,
+      "column": 13,
       "line": 10,
     },
-    "source": "// mdis-stop
-",
+    "source": "// mdis-stop",
     "start": Object {
       "column": 1,
       "line": 10,
@@ -186,11 +222,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 24,
+      "column": 23,
       "line": 6,
     },
-    "source": "// Single quote string
-",
+    "source": "// Single quote string",
     "start": Object {
       "column": 1,
       "line": 6,
@@ -199,11 +234,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 24,
+      "column": 23,
       "line": 23,
     },
-    "source": "// Double quote string
-",
+    "source": "// Double quote string",
     "start": Object {
       "column": 1,
       "line": 23,
@@ -212,11 +246,10 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 21,
+      "column": 20,
       "line": 38,
     },
-    "source": "// Back tick string
-",
+    "source": "// Back tick string",
     "start": Object {
       "column": 1,
       "line": 38,
