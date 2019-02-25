@@ -10,9 +10,19 @@ const extractSource = (filePath, options = {}) => {
 
   const extractedItems = [];
 
-  let prevItem;
+  let leftPad = 0;
+  let lastLine;
+  let prevExtractedItem = null;
   for (const item of items) {
-    if (item.token === Tokens.COMMENT) {
+    if (item.token !== Tokens.COMMENT) {
+      const lines = item.source.match(/[^\r\n]+/g) || [''];
+      for (const line of lines) {
+        if (line.trim().length !== 0) {
+          lastLine = line;
+          leftPad = line.length - line.trimLeft().length;
+        }
+      }
+    } else {
       switch (item.token) {
         case Tokens.COMMENT: {
           {
@@ -21,8 +31,13 @@ const extractSource = (filePath, options = {}) => {
             );
             if (matchResult !== null) {
               if (extractOnce) {
-                item.source = item.string = ''; //`\n...\n`
+                let dots = '...';
+                dots = dots.padStart(dots.length + leftPad);
+                item.source = item.string = `\n${dots}\n`;
                 item.token = Tokens.DOTS;
+                prevExtractedItem.source = prevExtractedItem.source
+                  .trimRight()
+                  .replace(/[\r\n]$/, '');
               } else {
                 item.source = item.string = '';
               }
@@ -52,16 +67,24 @@ const extractSource = (filePath, options = {}) => {
     }
     if (extract) {
       extractedItems.push(item);
+      prevExtractedItem = item;
     }
-    prevItem = item;
   }
 
-  const lines = [];
-
-  for (const item of extractedItems) {
+  const lines = extractedItems
+    .map(({ source }) => source)
+    .join('')
+    .trimRight()
+    .match(/[^\r\n]+/g) || [''];
+  leftPad = Number.MAX_VALUE;
+  for (const line of lines) {
+    leftPad = Math.min(leftPad, line.length - line.trimLeft().length);
+  }
+  for (let index = 0; index < lines.length; index++) {
+    lines[index] = lines[index].substr(leftPad);
   }
 
-  return extractedItems.map(({ source }) => source).join('');
+  return lines.join('\n');
 };
 
 module.exports = { extractSource };

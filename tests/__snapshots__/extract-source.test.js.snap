@@ -1,45 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`extractSource "named-blocks.js - options = { name: "Sample" }" 1`] = `
-"
-class NamedBlocks extends React.PureComponent {
-  
-}
-"
+"class NamedBlocks extends React.PureComponent {
+  ...
+}"
 `;
 
 exports[`extractSource "named-blocks.js - options = { name: "for-i-j" }" 1`] = `
-"
-    for(let i = 0; i < 10; i++) {
-      for(let j = 0; j < 10; j++) {
-        
-      }
-    }
-    "
+"for(let i = 0; i < 10; i++) {
+  for(let j = 0; j < 10; j++) {
+    ...
+  }
+}"
 `;
 
-exports[`extractSource "named-blocks.js - options = { name: "imports" }" 1`] = `
-"
-import React from 'react';
-"
-`;
+exports[`extractSource "named-blocks.js - options = { name: "imports" }" 1`] = `"import React from 'react';"`;
 
 exports[`extractSource "named-blocks.js - options = { name: "render" }" 1`] = `
-"
-  render() {
-    return <div>Sample</div>;
-  }
-  "
+"render() {
+  return <div>Sample</div>;
+}"
 `;
 
 exports[`extractSource "named-blocks.js - options = { name: undefined }" 1`] = `""`;
 
-exports[`extractSource "simple.js" 1`] = `
-"
-class Point {
+exports[`extractSource "named-blocks-chaos.js - options = { name: "Sample" }" 1`] = `
+"class NamedBlocks extends React.PureComponent {
+  ...
+}"
+`;
 
-}
-"
+exports[`extractSource "named-blocks-chaos.js - options = { name: "for-i-j" }" 1`] = `
+"for(let i = 0; i < 10; i++) {
+  for(let j = 0; j < 10; j++) {
+    ...
+  }
+}"
+`;
+
+exports[`extractSource "named-blocks-chaos.js - options = { name: "imports" }" 1`] = `"import React from 'react';"`;
+
+exports[`extractSource "named-blocks-chaos.js - options = { name: "render" }" 1`] = `
+"render() {
+  return <div>Sample</div>;
+}"
+`;
+
+exports[`extractSource "named-blocks-chaos.js - options = { name: undefined }" 1`] = `""`;
+
+exports[`extractSource "simple.js" 1`] = `
+"class Point {
+  ...
+}"
 `;
 
 exports[`extractSource "strings-and-comments.js" 1`] = `""`;
