@@ -14,7 +14,7 @@ const LexerRules = [
   { string: '\r\n', lexeme: Lexemes.EOL },
   { string: '\n', lexeme: Lexemes.EOL },
   { string: '\\', lexeme: Lexemes.BACK_SLASH },
-  { string: "'", lexeme: Lexemes.SINGLE_QUOTE },
+  { string: '\'', lexeme: Lexemes.SINGLE_QUOTE },
   { string: '"', lexeme: Lexemes.DOUBLE_QUOTE },
   { string: '`', lexeme: Lexemes.BACK_TICK },
   { string: '//', lexeme: Lexemes.START_SINGLE_LINE_COMMENT },
