@@ -25,7 +25,10 @@
     "npm",
     "utils"
   ],
-  "author": "Mr.Cheater (Anton Zhukov)",
+  "authors": [
+    "Mr.Cheater (Anton Zhukov)",
+    "vladihost"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/MrCheater/mdis/issues"
