@@ -7,5 +7,6 @@ test('"transformMarkdown"', () => {
     path.join(__dirname, 'files', 'markdown.md'),
     { encoding: 'utf8' }
   );
-  expect(markdown).toMatchSnapshot();
+
+  expect(`${markdown}`).toMatchSnapshot();
 });

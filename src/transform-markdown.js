@@ -32,10 +32,12 @@ const parseChunk = (chunk, filePath, options) => {
 
 const transformMarkdown = (filePath, options) => {
   const source = fs.readFileSync(filePath, { encoding: options.encoding });
+  let result = new String(source);
 
   const matches = source.match(regExpGlobal);
   if (matches == null) {
-    return source;
+    result.transformed = false;
+    return result;
   }
 
   const chunks = [];
@@ -51,7 +53,10 @@ const transformMarkdown = (filePath, options) => {
 
   chunks.push(source.substring(lastIndex));
 
-  return chunks.join('');
+  result = new String(chunks.join(''));
+  result.transformed = result != source;
+
+  return result;
 };
 
 module.exports = {
