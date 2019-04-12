@@ -10,5 +10,11 @@
 ```js
 ```
 
+## simple
+
+[mdis]:# (./simple.js)
+```js
+```
+
 End.
 

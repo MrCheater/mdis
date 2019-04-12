@@ -2,7 +2,7 @@ const { lexer } = require('./lexer');
 const { parser, Tokens } = require('./parser');
 const { reader } = require('./reader');
 
-const extractSource = (filePath, options = {}) => {
+const extractSource = (filePath, options) => {
   let items = parser(lexer(reader(filePath, options)));
 
   let extract = false;
@@ -42,7 +42,7 @@ const extractSource = (filePath, options = {}) => {
                 item.source = item.string = '';
               }
               const itemName = matchResult[2];
-              if (itemName === options.name) {
+              if (itemName === options.fragment) {
                 extract = true;
                 extractOnce = true;
                 break;
@@ -56,7 +56,7 @@ const extractSource = (filePath, options = {}) => {
             if (matchResult !== null) {
               item.source = item.string = '';
               const itemName = matchResult[2];
-              if (itemName === options.name) {
+              if (itemName === options.fragment) {
                 extract = false;
                 break;
               }

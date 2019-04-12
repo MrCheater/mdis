@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+
 const { extractSource } = require('./extract-source');
 
 const regExpGlobal = /(?:^|\n|\*)\s{0,4}?\[[^\]]+?\]\:\#\s\([^)]+?\)\s*?\n\s*?\`\`\`(?:\w+)?\n(?:.|\n)*?\`\`\`/gis;
@@ -20,7 +21,7 @@ const parseChunk = (chunk, filePath, options) => {
 
   const [relativePath, fragment] = relativePathAndFragment.split('#');
   const absolutePath = path.join(path.dirname(filePath), relativePath);
-  const content = extractSource(absolutePath, { ...options, name: fragment });
+  const content = extractSource(absolutePath, { ...options, fragment });
 
   return [
     `${whitespaces}[mdis]:# (${relativePathAndFragment})`,
@@ -30,8 +31,6 @@ const parseChunk = (chunk, filePath, options) => {
 };
 
 const transformMarkdown = (filePath, options) => {
-  options = options != null ? options : {};
-  options.encoding = options.encoding != null ? options.encoding : 'utf8';
   const source = fs.readFileSync(filePath, { encoding: options.encoding });
 
   const matches = source.match(regExpGlobal);

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`transformMarkdown "named-blocks.js" 1`] = `
+exports[`"transformMarkdown" 1`] = `
 "## named-blocks.js#imports
 
 [mdis]:# (./named-blocks.js#imports)
@@ -14,6 +14,15 @@ import React from 'react';
 \`\`\`js
 render() {
   return <div>Sample</div>;
+}
+\`\`\`
+
+## simple
+
+[mdis]:# (./simple.js)
+\`\`\`js
+class Point {
+  ...
 }
 \`\`\`
 
