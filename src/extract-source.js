@@ -3,7 +3,9 @@ const { parser, Tokens } = require('./parser');
 const { reader } = require('./reader');
 
 const extractSource = (filePath, options) => {
-  let items = parser(lexer(reader(filePath, options)));
+  const source = reader(filePath, options);
+
+  let items = parser(lexer(source));
 
   let extract = false;
   let extractOnce = false;
@@ -84,7 +86,18 @@ const extractSource = (filePath, options) => {
     lines[index] = lines[index].substr(leftPad);
   }
 
-  return lines.join('\n');
+  const result = lines.join('\n');
+  const isEmptyResult = result.trim() === '';
+
+  if (!isEmptyResult) {
+    return result;
+  }
+
+  if (options.fragment != null) {
+    throw new Error(`Unknown fragment ${options.fragment}`);
+  } else {
+    return source.trim();
+  }
 };
 
 module.exports = { extractSource };

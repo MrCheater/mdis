@@ -22,7 +22,38 @@ exports[`extractSource "named-blocks.js - options = { fragment: "render" }" 1`] 
 }"
 `;
 
-exports[`extractSource "named-blocks.js - options = { fragment: undefined }" 1`] = `""`;
+exports[`extractSource "named-blocks.js - options = { fragment: undefined }" 1`] = `
+"// mdis-start imports
+import React from 'react';
+// mdis-stop imports
+
+// mdis-start Sample
+class NamedBlocks extends React.PureComponent {
+  // mdis-stop Sample
+
+  componentDidMount() {
+    // mdis-start for-i-j
+    for(let i = 0; i < 10; i++) {
+      for(let j = 0; j < 10; j++) {
+        // mdis-stop for-i-j
+        console.log({ i, j })
+        // mdis-start for-i-j
+      }
+    }
+    // mdis-stop for-i-j
+    this.props.callback();
+  }
+
+ // mdis-start render
+  render() {
+    return <div>Sample</div>;
+  }
+  // mdis-stop render
+
+  // mdis-start Sample
+}
+// mdis-stop Sample"
+`;
 
 exports[`extractSource "named-blocks-chaos.js - options = { fragment: "Sample" }" 1`] = `
 "class NamedBlocks extends React.PureComponent {
@@ -46,7 +77,38 @@ exports[`extractSource "named-blocks-chaos.js - options = { fragment: "render" }
 }"
 `;
 
-exports[`extractSource "named-blocks-chaos.js - options = { fragment: undefined }" 1`] = `""`;
+exports[`extractSource "named-blocks-chaos.js - options = { fragment: undefined }" 1`] = `
+"// mdis-start imports
+import React from 'react';
+      // mdis-stop imports
+
+      // mdis-start Sample
+class NamedBlocks extends React.PureComponent {
+        // mdis-stop Sample
+
+  componentDidMount() {
+                // mdis-start for-i-j
+    for(let i = 0; i < 10; i++) {
+      for(let j = 0; j < 10; j++) {
+              // mdis-stop for-i-j
+        console.log({ i, j })
+                  // mdis-start for-i-j
+      }
+    }
+        // mdis-stop for-i-j
+    this.props.callback();
+  }
+
+       // mdis-start render
+  render() {
+    return <div>Sample</div>;
+  }
+      // mdis-stop render
+
+      // mdis-start Sample
+}
+  // mdis-stop Sample"
+`;
 
 exports[`extractSource "simple.js" 1`] = `
 "class Point {
@@ -54,4 +116,58 @@ exports[`extractSource "simple.js" 1`] = `
 }"
 `;
 
-exports[`extractSource "strings-and-comments.js" 1`] = `""`;
+exports[`extractSource "strings-and-comments.js" 1`] = `
+"/*
+	Multi Line Comment
+	Test test test
+*/
+
+// Single quote string
+let str
+str = 'abc'
+str = '\\\\n'
+str = '\\\\\\\\'
+str = '\\\\\\\\\\\\\\\\'
+str = '\\\\\\\\\\\\\\\\'
+str = '\\"\\"\\"'
+str = '\`\`\`'
+str = ''
+str = ' '
+str = \\"'\\"
+str = '\\"'
+str = '\`'
+str = '\\\\
+'
+
+// Double quote string
+str = \\"abc\\"
+str = \\"\\\\n\\"
+str = \\"\\\\\\\\\\"
+str = \\"\\\\\\\\\\\\\\\\\\"
+str = \\"'''\\"
+str = \\"\`\`\`\\"
+str = \\"\\"
+str = \\" \\"
+str = \\"'\\"
+str = \\"\\\\\\"\\"
+str = \\"\`\\"
+str = \\"\\\\
+\\"
+
+// Back tick string
+str = \`abc\`
+str = \`\\\\n\`
+str = \`\\\\\\\\\`
+str = \`\\\\\\\\\\\\\\\\\`
+str = \`'''\`
+str = \`\\"\\"\\"\`
+str = \`\`
+str = \` \`
+str = \`'\`
+str = \`\\"\`
+str = \`\\\\\`\`
+str = \`\\\\
+\`
+str = \`
+\`"
+`;
