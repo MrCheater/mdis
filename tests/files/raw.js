@@ -1,12 +1,5 @@
-const store = new Map();
-
 class Raw {
-  get (key) {
-    return store.get(key);
-  }
-  set (key, value) {
-    return store.set(key, value);
+  constructor() {
+    this.raw = true
   }
 }
-
-export default Raw

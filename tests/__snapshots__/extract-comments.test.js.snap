@@ -3,6 +3,10 @@
 exports[`extractComments "named-blocks.js" 1`] = `
 Array [
   Object {
+    "source": "mdis-start",
+    "string": "mdis-start",
+  },
+  Object {
     "end": Object {
       "column": 22,
       "line": 1,
@@ -28,25 +32,37 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 21,
+      "column": 26,
       "line": 5,
+    },
+    "source": "// mdis-start NamedBlocks",
+    "start": Object {
+      "column": 1,
+      "line": 5,
+    },
+    "string": "mdis-start NamedBlocks",
+  },
+  Object {
+    "end": Object {
+      "column": 21,
+      "line": 6,
     },
     "source": "// mdis-start Sample",
     "start": Object {
       "column": 1,
-      "line": 5,
+      "line": 6,
     },
     "string": "mdis-start Sample",
   },
   Object {
     "end": Object {
       "column": 22,
-      "line": 7,
+      "line": 8,
     },
     "source": "// mdis-stop Sample",
     "start": Object {
       "column": 3,
-      "line": 7,
+      "line": 8,
     },
     "string": "mdis-stop Sample",
   },
@@ -64,61 +80,73 @@ Array [
   },
   Object {
     "end": Object {
-      "column": 29,
+      "column": 21,
       "line": 13,
+    },
+    "source": "// some code",
+    "start": Object {
+      "column": 9,
+      "line": 13,
+    },
+    "string": "some code",
+  },
+  Object {
+    "end": Object {
+      "column": 29,
+      "line": 14,
     },
     "source": "// mdis-stop for-i-j",
     "start": Object {
       "column": 9,
-      "line": 13,
+      "line": 14,
     },
     "string": "mdis-stop for-i-j",
   },
   Object {
     "end": Object {
       "column": 30,
-      "line": 15,
+      "line": 16,
     },
     "source": "// mdis-start for-i-j",
     "start": Object {
       "column": 9,
-      "line": 15,
+      "line": 16,
     },
     "string": "mdis-start for-i-j",
   },
   Object {
     "end": Object {
       "column": 25,
-      "line": 18,
+      "line": 19,
     },
     "source": "// mdis-stop for-i-j",
     "start": Object {
       "column": 5,
-      "line": 18,
+      "line": 19,
     },
     "string": "mdis-stop for-i-j",
   },
   Object {
     "end": Object {
-      "column": 22,
-      "line": 22,
+      "column": 23,
+      "line": 23,
     },
     "source": "// mdis-start render",
     "start": Object {
-      "column": 2,
-      "line": 22,
+      "column": 3,
+      "line": 23,
     },
     "string": "mdis-start render",
   },
   Object {
     "end": Object {
       "column": 22,
-      "line": 26,
+      "line": 27,
     },
     "source": "// mdis-stop render",
     "start": Object {
       "column": 3,
-      "line": 26,
+      "line": 27,
     },
     "string": "mdis-stop render",
   },
@@ -146,12 +174,32 @@ Array [
     },
     "string": "mdis-stop Sample",
   },
+  Object {
+    "end": Object {
+      "column": 25,
+      "line": 31,
+    },
+    "source": "// mdis-stop NamedBlocks",
+    "start": Object {
+      "column": 1,
+      "line": 31,
+    },
+    "string": "mdis-stop NamedBlocks",
+  },
+  Object {
+    "source": "mdis-stop",
+    "string": "mdis-start",
+  },
 ]
 `;
 
 exports[`extractComments "simple.js" 1`] = `
 Array [
   Object {
+    "source": "mdis-start",
+    "string": "mdis-start",
+  },
+  Object {
     "end": Object {
       "column": 14,
       "line": 1,
@@ -198,12 +246,20 @@ Array [
       "line": 10,
     },
     "string": "mdis-stop",
+  },
+  Object {
+    "source": "mdis-stop",
+    "string": "mdis-start",
   },
 ]
 `;
 
 exports[`extractComments "strings-and-comments.js" 1`] = `
 Array [
+  Object {
+    "source": "mdis-start",
+    "string": "mdis-start",
+  },
   Object {
     "end": Object {
       "column": 3,
@@ -255,6 +311,10 @@ Array [
       "line": 38,
     },
     "string": "Back tick string",
+  },
+  Object {
+    "source": "mdis-stop",
+    "string": "mdis-start",
   },
 ]
 `;

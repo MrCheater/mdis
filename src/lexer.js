@@ -103,6 +103,7 @@ function lexer(source) {
 
       item.start.column -= prevEolEnd;
       item.end.column -= prevEolEnd;
+      item.source = '\n';
       continue;
     }
     item.start.column -= eolEnd;

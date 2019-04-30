@@ -657,7 +657,14 @@ const parser = lexerItems => {
   let prevState;
   let state = States.S0;
 
-  const parserItems = [];
+  const parserItems = [
+    {
+      token: Tokens.COMMENT,
+      string: 'mdis-start',
+      source: 'mdis-start'
+    }
+  ];
+
   let parserItem = {
     source: '',
     string: '',
@@ -695,6 +702,12 @@ const parser = lexerItems => {
     parserItem.end.column = end.column;
   }
   parserItems.push(normalize(parserItem));
+
+  parserItems.push({
+    token: Tokens.COMMENT,
+    string: 'mdis-start',
+    source: 'mdis-stop'
+  });
 
   return trim(parserItems);
 };

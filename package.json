@@ -1,6 +1,6 @@
 {
   "name": "mdis",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Markdown include source",
   "engines": {
     "node": ">=8.10"

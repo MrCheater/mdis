@@ -23,6 +23,10 @@ const parseChunk = (chunk, filePath, options) => {
   const absolutePath = path.join(path.dirname(filePath), relativePath);
   const content = extractSource(absolutePath, { ...options, fragment });
 
+  if (options.verbose) {
+    options.logs.push([`${relativePath}#${fragment}`]);
+  }
+
   return [
     `${whitespaces}[mdis]:# (${relativePathAndFragment})`,
     `\`\`\`${language}\n${content}`,

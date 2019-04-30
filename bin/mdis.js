@@ -7,6 +7,7 @@ const { processMarkdown } = require('../src/process-markdown');
 
 const options = {
   encoding: 'utf8',
+  verbose: true,
   ...minimist(process.argv.slice(2))
 };
 
