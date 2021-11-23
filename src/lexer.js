@@ -7,19 +7,20 @@ const Lexemes = {
   BACK_SLASH: 'BACK_SLASH', // \
   START_SINGLE_LINE_COMMENT: 'START_SINGLE_LINE_COMMENT', // //
   START_MULTI_LINE_COMMENT: 'START_MULTI_LINE_COMMENT', // /*
-  END_MULTI_LINE_COMMENT: 'END_MULTI_LINE_COMMENT' // */
+  END_MULTI_LINE_COMMENT: 'END_MULTI_LINE_COMMENT', // */
 };
 
 const LexerRules = [
   { string: '\r\n', lexeme: Lexemes.EOL },
   { string: '\n', lexeme: Lexemes.EOL },
   { string: '\\', lexeme: Lexemes.BACK_SLASH },
-  { string: '\'', lexeme: Lexemes.SINGLE_QUOTE },
+  // eslint-disable-next-line quotes
+  { string: "'", lexeme: Lexemes.SINGLE_QUOTE },
   { string: '"', lexeme: Lexemes.DOUBLE_QUOTE },
   { string: '`', lexeme: Lexemes.BACK_TICK },
   { string: '//', lexeme: Lexemes.START_SINGLE_LINE_COMMENT },
   { string: '/*', lexeme: Lexemes.START_MULTI_LINE_COMMENT },
-  { string: '*/', lexeme: Lexemes.END_MULTI_LINE_COMMENT }
+  { string: '*/', lexeme: Lexemes.END_MULTI_LINE_COMMENT },
 ];
 
 function lexer(source) {
@@ -28,8 +29,8 @@ function lexer(source) {
       lexeme: Lexemes.UNKNOWN,
       source,
       start: { column: 1 },
-      end: { column: source.length }
-    }
+      end: { column: source.length },
+    },
   ];
   let nextItems = [];
 
@@ -62,7 +63,7 @@ function lexer(source) {
             lexeme: Lexemes.UNKNOWN,
             source,
             start: { column: item.start.column + fromIndex },
-            end: { column: item.start.column + position }
+            end: { column: item.start.column + position },
           });
         }
 
@@ -70,7 +71,7 @@ function lexer(source) {
           lexeme: rule.lexeme,
           source: rule.string,
           start: { column: item.start.column + position },
-          end: { column: item.start.column + position + rule.string.length }
+          end: { column: item.start.column + position + rule.string.length },
         });
 
         fromIndex = position + rule.string.length;
@@ -82,7 +83,7 @@ function lexer(source) {
           lexeme: Lexemes.UNKNOWN,
           source,
           start: { column: item.start.column + fromIndex },
-          end: { column: item.start.column + item.source.length }
+          end: { column: item.start.column + item.source.length },
         });
       }
     }
@@ -116,5 +117,5 @@ function lexer(source) {
 module.exports = {
   lexer,
   Lexemes,
-  LexerRules
+  LexerRules,
 };

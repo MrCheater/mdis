@@ -16,13 +16,14 @@ const processMarkdown = (filePath, options) => {
 
   if (options.verbose) {
     options.logs.unshift([
-      `Processed ${JSON.stringify(filePath)} ${endTime - startTime}ms`
+      `Processed ${JSON.stringify(filePath)} ${endTime - startTime}ms`,
     ]);
-    options.logs.forEach(logs => console.log(...logs));
+    // eslint-disable-next-line no-console
+    options.logs.forEach((logs) => console.log(...logs));
     options.logs = [];
   }
 };
 
 module.exports = {
-  processMarkdown
+  processMarkdown,
 };

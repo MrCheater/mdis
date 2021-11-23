@@ -3,7 +3,7 @@
   "version": "0.0.6",
   "description": "Markdown include source",
   "engines": {
-    "node": ">=8.10"
+    "node": ">=14.17"
   },
   "main": "bin/mdis.js",
   "bin": {
@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "jest",
-    "prettier": "prettier-eslint --write \"**/**.{js,json}\"",
+    "prettier": "prettier --write \"**/**.{js,json}\"",
+    "prettier:check": "prettier --list-different \"{,!(node_modules)/**/}*.{js,json}\"",
     "lint": "eslint ."
   },
   "repository": {
@@ -40,6 +41,8 @@
     "minimist": "1.2.5"
   },
   "devDependencies": {
-    "jest": "27.3.1"
+    "jest": "27.3.1",
+    "prettier": "2.4.1",
+    "eslint": "8.3.0"
   }
 }

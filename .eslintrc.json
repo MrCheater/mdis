@@ -1,15 +1,15 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 9,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "rules": {
-        "indent": ["error", 2, { "SwitchCase": 1 }],
-        "semi": ["error", "always"],
-        "quotes": ["error", "single"],
-        "no-console": "error"
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "no-console": "error"
+  }
 }

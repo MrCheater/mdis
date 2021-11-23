@@ -3,18 +3,15 @@ const path = require('path');
 
 const { extractSource } = require('./extract-source');
 
-const regExpGlobal = /(?:^|\n|\*)\s{0,4}?\[[^\]]+?\]\:\#\s\([^)]+?\)\s*?\n\s*?\`\`\`(?:\w+)?\n(?:.|\n)*?\`\`\`/gis;
+const regExpGlobal =
+  /(?:^|\n|\*)\s{0,4}?\[[^\]]+?\]\:\#\s\([^)]+?\)\s*?\n\s*?\`\`\`(?:\w+)?\n(?:.|\n)*?\`\`\`/gis;
 
-const regExpLocal = /((?:^|\n|\*)\s{0,4}?)\[([^\]]+?)\]\:\#\s\(([^)]+?)\)\s*?\n\s*?\`\`\`((?:\w+)?)\n(?:.|\n)*?\`\`\`/is;
+const regExpLocal =
+  /((?:^|\n|\*)\s{0,4}?)\[([^\]]+?)\]\:\#\s\(([^)]+?)\)\s*?\n\s*?\`\`\`((?:\w+)?)\n(?:.|\n)*?\`\`\`/is;
 
 const parseChunk = (chunk, filePath, options) => {
-  const [
-    ,
-    whitespaces,
-    preambule,
-    relativePathAndFragment,
-    language
-  ] = chunk.match(regExpLocal);
+  const [, whitespaces, preambule, relativePathAndFragment, language] =
+    chunk.match(regExpLocal);
   if (preambule !== 'mdis') {
     return chunk;
   }
@@ -30,7 +27,7 @@ const parseChunk = (chunk, filePath, options) => {
   return [
     `${whitespaces}[mdis]:# (${relativePathAndFragment})`,
     `\`\`\`${language}\n${content}`,
-    '```'
+    '```',
   ].join('\n');
 };
 
@@ -64,5 +61,5 @@ const transformMarkdown = (filePath, options) => {
 };
 
 module.exports = {
-  transformMarkdown
+  transformMarkdown,
 };

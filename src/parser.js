@@ -11,7 +11,7 @@ const Tokens = {
   DOUBLE_QUOTE_STRING: 'DOUBLE_QUOTE_STRING',
   BACK_TICK_STRING: 'BACK_TICK_STRING',
   DOTS: 'DOTS',
-  UNKNOWN: 'UNKNOWN'
+  UNKNOWN: 'UNKNOWN',
 };
 
 const normalize = ({ string, token, ...item }) => {
@@ -26,15 +26,12 @@ const normalize = ({ string, token, ...item }) => {
       return {
         ...item,
         token: Tokens.COMMENT,
-        string
+        string,
       };
       break;
     }
     case Tokens.MULTI_LINE_COMMENT: {
-      string = string
-        .replace(/\*\/$/, '')
-        .replace(/^\/\*/, '')
-        .trim();
+      string = string.replace(/\*\/$/, '').replace(/^\/\*/, '').trim();
 
       while (true) {
         if (string[string.length - 1] === '\n') {
@@ -49,7 +46,7 @@ const normalize = ({ string, token, ...item }) => {
       return {
         ...item,
         token: Tokens.COMMENT,
-        string
+        string,
       };
       break;
     }
@@ -57,7 +54,7 @@ const normalize = ({ string, token, ...item }) => {
       return {
         ...item,
         token: Tokens.STRING,
-        string: string.replace(/'$/, '').replace(/^'/, '')
+        string: string.replace(/'$/, '').replace(/^'/, ''),
       };
       break;
     }
@@ -65,7 +62,7 @@ const normalize = ({ string, token, ...item }) => {
       return {
         ...item,
         token: Tokens.STRING,
-        string: string.replace(/"$/, '').replace(/^"/, '')
+        string: string.replace(/"$/, '').replace(/^"/, ''),
       };
       break;
     }
@@ -73,7 +70,7 @@ const normalize = ({ string, token, ...item }) => {
       return {
         ...item,
         token: Tokens.STRING,
-        string: string.replace(/`$/, '').replace(/^`/, '')
+        string: string.replace(/`$/, '').replace(/^`/, ''),
       };
       break;
     }
@@ -83,7 +80,7 @@ const normalize = ({ string, token, ...item }) => {
   }
 };
 
-const trim = parserItems => {
+const trim = (parserItems) => {
   while (
     parserItems[0].token === Tokens.UNKNOWN &&
     parserItems[0].source === ''
@@ -111,7 +108,7 @@ const States = {
   S6: 'S6',
   S7: 'S7',
   S8: 'S8',
-  S9: 'S9'
+  S9: 'S9',
 };
 
 const ParserRules = [
@@ -119,530 +116,530 @@ const ParserRules = [
     lexeme: Lexemes.UNKNOWN,
     from: States.S0,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S0,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   // Single quote string
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S0,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S1,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S1,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S1,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S1,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S1,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S1,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S1,
     to: States.S2,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S2,
     to: States.S1,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S1,
     to: States.S0,
-    token: Tokens.SINGLE_QUOTE_STRING
+    token: Tokens.SINGLE_QUOTE_STRING,
   },
   // Double quote string
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S0,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S3,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S3,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S3,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S3,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S3,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S3,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S3,
     to: States.S4,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S4,
     to: States.S3,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S3,
     to: States.S0,
-    token: Tokens.DOUBLE_QUOTE_STRING
+    token: Tokens.DOUBLE_QUOTE_STRING,
   },
   // Back tick string
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S0,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S5,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S5,
     to: States.S6,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S6,
     to: States.S5,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S5,
     to: States.S0,
-    token: Tokens.BACK_TICK_STRING
+    token: Tokens.BACK_TICK_STRING,
   },
   // Single line comment
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S0,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S7,
     to: States.S7,
-    token: Tokens.SINGLE_LINE_COMMENT
+    token: Tokens.SINGLE_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S7,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   // Multi line comment
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S0,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S8,
     to: States.S8,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S8,
     to: States.S0,
-    token: Tokens.MULTI_LINE_COMMENT
+    token: Tokens.MULTI_LINE_COMMENT,
   },
   /// Back slash
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S0,
     to: States.S9,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.UNKNOWN,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.EOL,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.SINGLE_QUOTE,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.DOUBLE_QUOTE,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.BACK_TICK,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.BACK_SLASH,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.START_SINGLE_LINE_COMMENT,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.START_MULTI_LINE_COMMENT,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
+    token: Tokens.UNKNOWN,
   },
   {
     lexeme: Lexemes.END_MULTI_LINE_COMMENT,
     from: States.S9,
     to: States.S0,
-    token: Tokens.UNKNOWN
-  }
+    token: Tokens.UNKNOWN,
+  },
 ];
 
 const transitions = {};
@@ -653,7 +650,7 @@ for (const { lexeme, from, to, token } of ParserRules) {
   transitions[from][lexeme] = { to, token };
 }
 
-const parser = lexerItems => {
+const parser = (lexerItems) => {
   let prevState;
   let state = States.S0;
 
@@ -661,8 +658,8 @@ const parser = lexerItems => {
     {
       token: Tokens.COMMENT,
       string: 'mdis-start',
-      source: 'mdis-start'
-    }
+      source: 'mdis-start',
+    },
   ];
 
   let parserItem = {
@@ -670,7 +667,7 @@ const parser = lexerItems => {
     string: '',
     token: Tokens.UNKNOWN,
     start: { line: 1, column: 1 },
-    end: { line: 1, column: 1 }
+    end: { line: 1, column: 1 },
   };
   for (const lexerItem of lexerItems) {
     const { lexeme, source, start, end } = lexerItem;
@@ -692,7 +689,7 @@ const parser = lexerItems => {
         string: '',
         token: transitions[state][lexeme].token,
         start: { line: start.line, column: start.column },
-        end: { line: end.line, column: end.column }
+        end: { line: end.line, column: end.column },
       };
     }
 
@@ -706,7 +703,7 @@ const parser = lexerItems => {
   parserItems.push({
     token: Tokens.COMMENT,
     string: 'mdis-start',
-    source: 'mdis-stop'
+    source: 'mdis-stop',
   });
 
   return trim(parserItems);
@@ -718,5 +715,5 @@ module.exports = {
   trim,
   States,
   Tokens,
-  ParserRules
+  ParserRules,
 };
