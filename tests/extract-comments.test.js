@@ -6,7 +6,7 @@ describe('extractComments', () => {
   test('"named-blocks.js"', () => {
     expect(
       extractComments(path.join(__dirname, 'files', 'named-blocks.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
     ).toMatchSnapshot();
   });
@@ -14,7 +14,7 @@ describe('extractComments', () => {
   test('"simple.js"', () => {
     expect(
       extractComments(path.join(__dirname, 'files', 'simple.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
     ).toMatchSnapshot();
   });

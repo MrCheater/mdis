@@ -7,5 +7,5 @@ function reader(filePath, { encoding = 'utf8' } = {}) {
 }
 
 module.exports = {
-  reader
+  reader,
 };

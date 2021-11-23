@@ -6,7 +6,7 @@ describe('extractSource', () => {
   test('"named-blocks.js - options = { fragment: undefined }"', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
     ).toMatchSnapshot();
   });
@@ -15,7 +15,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks.js'), {
         encoding: 'utf8',
-        fragment: 'imports'
+        fragment: 'imports',
       })
     ).toMatchSnapshot();
   });
@@ -24,7 +24,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks.js'), {
         encoding: 'utf8',
-        fragment: 'Sample'
+        fragment: 'Sample',
       })
     ).toMatchSnapshot();
   });
@@ -33,7 +33,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks.js'), {
         encoding: 'utf8',
-        fragment: 'render'
+        fragment: 'render',
       })
     ).toMatchSnapshot();
   });
@@ -42,7 +42,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks.js'), {
         encoding: 'utf8',
-        fragment: 'for-i-j'
+        fragment: 'for-i-j',
       })
     ).toMatchSnapshot();
   });
@@ -52,7 +52,7 @@ describe('extractSource', () => {
   test('"named-blocks-chaos.js - options = { fragment: undefined }"', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks-chaos.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
     ).toMatchSnapshot();
   });
@@ -61,7 +61,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks-chaos.js'), {
         encoding: 'utf8',
-        fragment: 'imports'
+        fragment: 'imports',
       })
     ).toMatchSnapshot();
   });
@@ -70,7 +70,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks-chaos.js'), {
         encoding: 'utf8',
-        fragment: 'Sample'
+        fragment: 'Sample',
       })
     ).toMatchSnapshot();
   });
@@ -79,7 +79,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks-chaos.js'), {
         encoding: 'utf8',
-        fragment: 'render'
+        fragment: 'render',
       })
     ).toMatchSnapshot();
   });
@@ -88,7 +88,7 @@ describe('extractSource', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'named-blocks-chaos.js'), {
         encoding: 'utf8',
-        fragment: 'for-i-j'
+        fragment: 'for-i-j',
       })
     ).toMatchSnapshot();
   });
@@ -98,7 +98,7 @@ describe('extractSource', () => {
   test('"simple.js"', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'simple.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
     ).toMatchSnapshot();
   });
@@ -106,7 +106,7 @@ describe('extractSource', () => {
   test('"strings-and-comments.js"', () => {
     expect(
       extractSource(path.join(__dirname, 'files', 'strings-and-comments.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
     ).toMatchSnapshot();
   });
