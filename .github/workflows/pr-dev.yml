@@ -1,9 +1,6 @@
-name: dev (PR)
+name: Pull request
 
-on:
-  pull_request:
-    branches:
-      - dev
+on: [pull_request]
 
 jobs:
   workflow:
