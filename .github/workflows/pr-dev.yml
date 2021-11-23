@@ -1,0 +1,34 @@
+name: dev (PR)
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  workflow:
+    name: CI/CD
+    runs-on: ubuntu-latest
+    if: |
+      startsWith(github.head_ref, 'feature/')
+      || startsWith(github.head_ref, 'hotfix/')
+      || startsWith(github.head_ref, 'fix/')
+      || startsWith(github.head_ref, 'bugfix/')
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install
+        run: |
+          yarn install 
+
+      - name: Prettier
+        run: |
+          yarn prettier:check
+
+      - name: Lint
+        run: |
+          yarn lint
