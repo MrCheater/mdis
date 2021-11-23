@@ -24,6 +24,7 @@ jobs:
       - name: Install
         run: |
           yarn install 
+          yarn audit
 
       - name: Prettier
         run: |
