@@ -1,6 +1,6 @@
 {
   "name": "mdis",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Markdown include source",
   "engines": {
     "node": ">=14.17"
@@ -29,6 +29,7 @@
   ],
   "authors": [
     "Mr.Cheater (Anton Zhukov)",
+    "Eugeniy Burmistrov",
     "vladihost"
   ],
   "license": "MIT",

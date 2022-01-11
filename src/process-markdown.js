@@ -9,7 +9,7 @@ const processMarkdown = (filePath, options) => {
   const result = transformMarkdown(filePath, options);
 
   if (result.transformed) {
-    fs.writeFileSync(filePath, result);
+    fs.writeFileSync(filePath, Buffer.from(result));
   }
 
   const endTime = Date.now();
