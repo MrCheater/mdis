@@ -1,0 +1,5 @@
+docker:
+  - image: ubuntu:14.04
+  - image: mongo:2.6.8
+    command: [mongod, --smallfiles]
+  - image: postgres:9.4.1

@@ -238,5 +238,24 @@ export default [
 'apple'
 ```
 
+## Yaml
+[mdis]:# (./some-config.yaml)
+```yaml
+docker:
+  - image: ubuntu:14.04
+  - image: mongo:2.6.8
+    command: [mongod, --smallfiles]
+  - image: postgres:9.4.1
+```
+
+## JS + Title
+[mdis]:# (./raw.js)
+```js title="Raw Example Title"
+class Raw {
+  constructor() {
+    this.raw = true
+  }
+}
+```
 End.
 

@@ -4,10 +4,10 @@ const path = require('path');
 const { extractSource } = require('./extract-source');
 
 const regExpGlobal =
-  /(?:^|\n|\*)\s{0,4}?\[[^\]]+?\]\:\#\s\([^)]+?\)\s*?\n\s*?\`\`\`(?:\w+)?\n(?:.|\n)*?\`\`\`/gis;
+  /(?:^|\n|\*)\s{0,4}?\[[^\]]+?\]\:\#\s\([^)]+?\)\s*?\n\s*?\`\`\`(?:[^\n]+)?\n(?:.|\n)*?\`\`\`/gis;
 
 const regExpLocal =
-  /((?:^|\n|\*)\s{0,4}?)\[([^\]]+?)\]\:\#\s\(([^)]+?)\)\s*?\n\s*?\`\`\`((?:\w+)?)\n(?:.|\n)*?\`\`\`/is;
+  /((?:^|\n|\*)\s{0,4}?)\[([^\]]+?)\]\:\#\s\(([^)]+?)\)\s*?\n\s*?\`\`\`((?:[^\n]+)?)\n(?:.|\n)*?\`\`\`/is;
 
 const parseChunk = (chunk, filePath, options) => {
   const [, whitespaces, preambule, relativePathAndFragment, language] =
