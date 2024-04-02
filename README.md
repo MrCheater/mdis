@@ -124,7 +124,7 @@ class NamedBlocks extends React.PureComponent {
 </table>
 
 
-#### Named blocks
+#### Intersection
 <table>
 <tr>
 <th>Markdown</th>
