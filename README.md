@@ -112,11 +112,11 @@ import React from 'react';
 // mdis-stop imports
 
 class NamedBlocks extends React.PureComponent {
-  // mdis-start render
-  render() {
-    return &lt;div&gt;Sample&lt;/div&gt;;
-  }
-  // mdis-stop render
+&#160;&#160;// mdis-start render
+&#160;&#160;render() {
+&#160;&#160;&#160;&#160;return &lt;div&gt;Sample&lt;/div&gt;;
+&#160;&#160;}
+&#160;&#160;// mdis-stop render
 }
 </pre>
 </td>
