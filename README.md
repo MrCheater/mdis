@@ -1,9 +1,6 @@
 # mdis
 
---------
-
-**M**ark**d**own **i**nclude **s**ource
-
+**M**ark**D**own **I**nclude **S**ource
 
 Library for including code in Markdown file - A software developed for the JavaScript and TypeScript environments, enabling users to easily integrate and showcase code samples in their Markdown-powered documents.
 
