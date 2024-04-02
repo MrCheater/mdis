@@ -38,12 +38,12 @@
   },
   "homepage": "https://github.com/MrCheater/mdis#readme",
   "dependencies": {
-    "glob": "7.2.0",
-    "minimist": "1.2.6"
+    "glob": "^10.3.12",
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
-    "jest": "27.3.1",
-    "prettier": "2.4.1",
-    "eslint": "8.3.0"
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "eslint": "^8.57.0"
   }
 }
