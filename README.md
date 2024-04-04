@@ -33,7 +33,7 @@ _mdis_ — **M**ark**D**own **I**nclude **S**ource — provides means for precis
 Now, below are examples of how `mdis-`-commented JS code appears when referenced in an .MD file, as well as how non-supported language code gets imported when processed with _mdis_.
 
 ## Usage options and their output
-> ⚠ We recommend reading the below section with this repo file tree open in a separate tab: that way you will better see the _MD doc input_ ⇒ _MD doc + mdis result_ logic.
+> ⚠ We recommend reading the below section with this repo file tree open in a separate tab: that way you will better see the _**.JS file** + `mdis-` comments_ ⇒ _**.MD file** + `mdis lib` processing_ logic.
 
 #### 1. Nameless sections
 
