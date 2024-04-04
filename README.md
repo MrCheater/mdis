@@ -68,12 +68,12 @@ class NamedBlocks extends React.PureComponent {
 ⇓
 ##### 🤖 Result
 `````markdown
-[mdis]:# (.tests/files/named-blocks.js#imports)
+[mdis]:# (./tests/files/named-blocks.js#imports)
 ```js
 import React from 'react';
 ```
 
-[mdis]:# (./named-blocks.js#render)
+[mdis]:# (./tests/named-blocks.js#render)
 ```js
 render() {
   return <div>Sample</div>;
@@ -99,14 +99,14 @@ export default [
 ⇓
 ##### 🤖 Result
 `````markdown
-[mdis]:# (.tests/files/intersection.js#round)
+[mdis]:# (./tests/files/intersection.js#round)
 ```js
 'sun',
 'lemon',
 'apple'
 ```
 
-[mdis]:# (.tests/files/intersection.js#yellow)
+[mdis]:# (./tests/files/intersection.js#yellow)
 ```js
 'banana',
 'sun',
@@ -127,7 +127,7 @@ docker:
 ⇓
 ##### 🤖 Result
 `````markdown
-[mdis]:# (.tests/files/config.yaml)
+[mdis]:# (./tests/files/config.yaml)
 ```yaml
 docker:
   - image: ubuntu:14.04
@@ -202,13 +202,13 @@ class NamedBlocks extends React.PureComponent {
 </td>
 <td>
 <pre>
-[mdis]:# (.tests/files/named-blocks.js#imports)
+[mdis]:# (./tests/files/named-blocks.js#imports)
 ```
 import React from 'react';
 ```
 </pre>
 <pre>
-[mdis]:# (./named-blocks.js#render)
+[mdis]:# (./tests/named-blocks.js#render)
 ```
 render() {
   return &lt;div&gt;Sample&lt;/div&gt;;
@@ -242,7 +242,7 @@ export default [
 </td>
 <td>
 <pre>
-[mdis]:# (.tests/files/intersection.js#round)
+[mdis]:# (./tests/files/intersection.js#round)
 ```js
 'sun',
 'lemon',
@@ -250,7 +250,7 @@ export default [
 ```
 </pre>
 <pre>
-[mdis]:# (.tests/files/intersection.js#yellow)
+[mdis]:# (./tests/files/intersection.js#yellow)
 ```js
 'banana',
 'sun',
@@ -279,7 +279,7 @@ docker:
 </td>
 <td>
 <pre>
-[mdis]:# (.tests/files/config.yaml)
+[mdis]:# (./tests/files/config.yaml)
 ```yaml
 docker:
   - image: ubuntu:14.04
