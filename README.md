@@ -44,7 +44,7 @@ To reference `mdis-`-tuned code in your .MD files through _mdis_ import,
    3. Add a new line;
    4. Run _mdis_; <!-- ❗💬 HOW DOES ONE DO IT ❗💬 -->
    5. After the utility is done working, your
-      ```[mdis] (./path/file.ext)```
+      ```[mdis](./path/file.ext)```
       will turn into:
       `````markdown
       [mdis]#: (./path/file.ext)
