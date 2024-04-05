@@ -8,7 +8,7 @@ _mdis_ — **M**ark**D**own **I**nclude **S**ource — provides means for precis
 > 
 > ⚙️ **Code in unsupported languages** importable _as whole file's contents_, with legitimate syntax highliting (as long as your Markdown processor supports it for the given language).
 
-## General outline of the _mdis_ operation algorithm
+## _mdis_ operation and use
 ### 0. Installation ⏬
 > You will need to import _mdis_ separately for each of your projects. We suggest installing it as a development stage dependency:
 > ```powershell
@@ -64,7 +64,7 @@ Upon export through Markdown-to-RTF/PDF/XML/etc. processors, the .MD files inclu
 
 Now, below are examples of how `mdis-`-tuned JS code appears when referenced in an .MD file, as well as how non-supported language code gets imported when processed with _mdis_.
 
-## Examples of output produced from various use options
+## Examples of output from various use scenarios
 > ⚠ We recommend reading the below section with this repo file tree open by the side: that way you will better understand the _**source code file** + `mdis-` comments_ ⇒ _**.MD file** + _mdis lib_ processing_ logic.
 
 ### Nameless sections
