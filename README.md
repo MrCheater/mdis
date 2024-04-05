@@ -19,17 +19,17 @@ _mdis_ — **M**ark**D**own **I**nclude **S**ource — provides means for precis
 #### Now the single-line comments starting with `mdis-` will have special properties associated with them:
 
 1. Where you want to **change the visibility** of sections of code when embedded in the project's .MD files, use:  
->   `mdis-start` to mark the start of the visible section, and  
->   `mdis-stop` to mark the end of such section.
+   * `mdis-start` to mark the start of the visible section, and  
+   * `mdis-stop` to mark the end of such section.
   
 2. Using **several  `mdis-start`/`mdis-stop` comments in the same code file** will lead to sections enclosed in such comments appearing in the .MD file, and the rest of the code being omitted, with `...` in its place _(see  **Nameless blocks** for reference)_. You may not interpolate unappended `mdis-start`/`mdis-stop` sections with one another in any way; only sequential use is allowed for them.
   
 3. You can append your start/stop declarations with an arbitrary **section name**.  
->   1) You must include the section name for *both starting and ending comment* of the respective section.  
->   2) Named sections may follow one another, be nested, or overlap with one another.  
->   3) The section names may only include *alphabetical characters in either case, digits, dashes, and underscores* (`A..Z, a..z, 0..9, -, _`).
->   4) Portions of code with *named `mdis-` sections* will appear in the .MD files under an *extended URL*: `[mdis]:#./path/file.js_#section-name_` — as opposed to *nameless `mdis-`-tuned portions of code*: `[mdis]:#./path/file.js`.
->   5) Portions of code with *named `mdis-` sections* will have a *code snippet name* set as `‍```js title="section-name"`, with the exact same spelling and capitalization as in the respective `mdis-` comments.
+   1. You must include the section name for *both starting and ending comment* of the respective section.  
+   2. Named sections may follow one another, be nested, or overlap with one another.  
+   3. The section names may only include *alphabetical characters in either case, digits, dashes, and underscores* (`A..Z, a..z, 0..9, -, _`).
+   4. Portions of code with *named `mdis-` sections* will appear in the .MD files under an *extended URL*: `[mdis]:#./path/file.js_#section-name_` — as opposed to *nameless `mdis-`-tuned portions of code*: `[mdis]:#./path/file.js`.
+   5. Portions of code with *named `mdis-` sections* will have a *code snippet name* set as `‍```js title="section-name"`, with the exact same spelling and capitalization as in the respective `mdis-` comments.
   
 4. **If you use _mdis_ with code in an unsupported language**, you will only be able to embed the respective files' contents as a whole, with no visibility restrictions in force, regardless of whether you made the `mdis-` comments in them or not _(see **Raw** for reference)_.
   
