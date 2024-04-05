@@ -64,7 +64,7 @@ Upon export through Markdown-to-RTF/PDF/XML/etc. processors, the .MD files inclu
 
 Now, below are examples of how `mdis-`-tuned JS code appears when referenced in an .MD file, as well as how non-supported language code gets imported when processed with _mdis_.
 
-## Examples of output with various options
+## Examples of output produced from various use options
 > ⚠ We recommend reading the below section with this repo file tree open by the side: that way you will better understand the _**source code file** + `mdis-` comments_ ⇒ _**.MD file** + _mdis lib_ processing_ logic.
 
 ### Nameless sections
