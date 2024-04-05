@@ -23,18 +23,18 @@ Where you want to change the visibility of sections of code when embedded in the
 * `mdis-stop` to mark the end of such section.
   
 ### 2. Chaining of visibility declarations 🚃
-Using several  `mdis-start`/`mdis-stop` comments in the same code file will lead to sections enclosed in such comments appearing in the .MD file, and the rest of the code being omitted, with `...` in its place _(see  [Nameless sections](#1-nameless-sections))_. You may not interpolate unappended `mdis-start`/`mdis-stop` sections with one another in any way; only sequential use is allowed for them.
+Using several  `mdis-start`/`mdis-stop` comments in the same code file will lead to sections enclosed in such comments appearing in the .MD file, and the rest of the code being omitted, with `...` in its place _(see  [Nameless sections](#nameless-sections))_. You may not interpolate unappended `mdis-start`/`mdis-stop` sections with one another in any way; only sequential use is allowed for them.
   
 ### 3. Creating named code sections; interpolating of sections 🏷️
 You can append your start/stop declarations with an arbitrary section name.  
 1. You must include the section name for **both starting and ending comment** of the respective section.  
-2. 🖇️ Named sections may follow one another _(see [Named sections](#2-named-sections))_, be nested, or overlap with one another _(see [Overlapping sections](#3-overlapping-sections))_.  
+2. 🖇️ Named sections may follow one another _(see [Named sections](#named-sections))_, be nested, or overlap with one another _(see [Overlapping sections](#overlapping-sections))_.  
 3. The section names may only include **alphabetical characters in either case, digits, dashes, and underscores** (`A..Z, a..z, 0..9, -, _`).
 4. Portions of code with named `mdis-` sections will *appear in the .MD files under an extended URL*: `[mdis]:# (./path/file.js_#section-name)_` — as opposed to nameless `mdis-`-tuned portions of code: `[mdis]:# (./path/file.js)`.
 5. Portions of code with named `mdis-` sections will have a *code snippet name* set as `‍```lang title="section-name"`, with the exact same spelling and capitalization as in the respective `mdis-` comments.
 
 ### 4. Using _mdis_ with unsupported languages ⚙️
-If you use _mdis_ with code in an unsupported language, you will only be able to embed the respective files' contents as a whole, with no visibility restrictions in force, regardless of whether you made the `mdis-` comments in them or not _(see [Raw import](#4-raw-import))_.
+If you use _mdis_ with code in an unsupported language, you will only be able to embed the respective files' contents as a whole, with no visibility restrictions in force, regardless of whether you made the `mdis-` comments in them or not _(see [Raw import](#raw-import))_.
 
 ### 5. _Actually_ referencing _mdis_-tuned code in .MD files 🔗
 To reference `mdis-`-tuned code in your .MD files through _mdis_ import,
@@ -67,9 +67,9 @@ Now, below are examples of how `mdis-`-tuned JS code appears when referenced in 
 ## Examples of output with various options
 > ⚠ We recommend reading the below section with this repo file tree open by the side: that way you will better understand the _**source code file** + `mdis-` comments_ ⇒ _**.MD file** + _mdis lib_ processing_ logic.
 
-#### 1. Nameless sections
+### Nameless sections
 
-##### 📜 .JS file with `mdis-` comments
+**📜 .JS file with `mdis-` comments**
 `````js
 // mdis-start
 class Point {
@@ -85,7 +85,8 @@ class Point {
 export default Point
 `````
 ⇓
-##### 🤖 .MD file after _mdis_ lib processing
+  
+**🤖 .MD file after _mdis_ lib processing**
 `````markdown
 [mdis]:# (./tests/files/simple.js)
 ```js
@@ -95,9 +96,9 @@ class Point {
 ```
 `````
 
-#### 2. Named sections
+### Named sections
 
-##### 📜 .JS file with `mdis-` comments
+**📜 .JS file with `mdis-` comments**
 `````js
 // mdis-start imports
 import React from 'react';
@@ -111,7 +112,8 @@ class NamedBlocks extends React.PureComponent {
 }
 `````
 ⇓
-##### 🤖 .MD file after _mdis_ lib processing
+  
+**🤖 .MD file after _mdis_ lib processing**
 `````markdown
 [mdis]:# (./tests/files/named-blocks.js#imports)
 ```js title="imports"
@@ -126,9 +128,9 @@ render() {
 ```
 `````
 
-#### 3. Overlapping sections
+### Overlapping sections
 
-##### 📜 .JS file with `mdis-` comments
+**📜 .JS file with `mdis-` comments**
 `````js
 export default [
   // mdis-start yellow
@@ -142,7 +144,8 @@ export default [
 ];
 `````
 ⇓
-##### 🤖 .MD file after _mdis_ lib processing
+  
+**🤖 .MD file after _mdis_ lib processing**
 `````markdown
 [mdis]:# (./tests/files/intersection.js#round)
 ```js
@@ -159,9 +162,9 @@ export default [
 ```
 `````
 
-#### 4. Raw import
+### Raw import
 
-##### 📄 ._YAML_ file with `mdis-` comments
+**📄 ._YAML_ file with `mdis-` comments**
 `````yaml
 docker:
 # mdis-start
@@ -172,7 +175,8 @@ docker:
   - image: postgres:9.4.1
 `````
 ⇓
-##### 🤖 .MD file after _mdis_ lib processing
+  
+**🤖 .MD file after _mdis_ lib processing**
 `````markdown
 [mdis]:# (./tests/files/config.yaml)
 ```yaml
