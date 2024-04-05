@@ -136,7 +136,7 @@ export default [
 
 #### 4. Raw import
 
-##### 📄 ._YAML_ file, _no `mdis-` comments_
+##### 📄 ._YAML_ file with `mdis-` comments
 `````yaml
 docker:
 # mdis-start
