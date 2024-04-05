@@ -18,15 +18,15 @@ _mdis_ — **M**ark**D**own **I**nclude **S**ource — provides means for precis
 
 #### Now the single-line comments starting with `mdis-` will have special properties associated with them:
 
-##### 1. Basic visibility control with `mdis-start`/`mdis-stop` comments
+##### 1. **Basic visibility control** with `mdis-start`/`mdis-stop` comments
 Where you want to change the visibility of sections of code when embedded in the project's .MD files, use:  
    * `mdis-start` to mark the start of the visible section, and  
    * `mdis-stop` to mark the end of such section.
   
-##### 2. Chaining of visibility declarations
+##### 2. **Chaining** of visibility declarations
 Using several  `mdis-start`/`mdis-stop` comments in the same code file will lead to sections enclosed in such comments appearing in the .MD file, and the rest of the code being omitted, with `...` in its place _(see  **Nameless blocks** for reference)_. You may not interpolate unappended `mdis-start`/`mdis-stop` sections with one another in any way; only sequential use is allowed for them.
   
-##### 3. Creating named code sections
+##### 3. Creating **named code sections**; **interpolating** of sections
 You can append your start/stop declarations with an arbitrary section name.  
    1. You must include the section name for **both starting and ending comment** of the respective section.  
    2. Named sections may follow one another, be nested, or overlap with one another.  
@@ -34,13 +34,13 @@ You can append your start/stop declarations with an arbitrary section name.
    4. Portions of code with named `mdis-` sections will *appear in the .MD files under an extended URL*: `[mdis]:#./path/file.js_#section-name_` — as opposed to nameless `mdis-`-tuned portions of code: `[mdis]:#./path/file.js`.
    5. Portions of code with named `mdis-` sections will have a *code snippet name* set as `‍```lang title="section-name"`, with the exact same spelling and capitalization as in the respective `mdis-` comments.
   
-##### 4. Using _mdis_ with unsupported languages
+##### 4. Using _mdis_ with **unsupported languages**
 If you use _mdis_ with code in an unsupported language, you will only be able to embed the respective files' contents as a whole, with no visibility restrictions in force, regardless of whether you made the `mdis-` comments in them or not _(see **Raw** for reference)_.
   
-##### 5. Specifics of code snippets render
+##### 5. Specifics of code snippets **render**
 _mdis_-processed code snippets are dependent on the respective code files: code snippets' contents **will change** if you make **changes to the referenced portions of code**, — and will *always reflect reference sources' state* upon restart, even if you try to make amendments in the rendered code snippets within the .MD file.
   
-##### 6. Export from .MD files using `mdis-` tuned code snippets
+##### 6. **Export** from .MD files using `mdis-` tuned code snippets
 Upon export through Markdown-to-RTF/PDF/XML/etc. processors, the .MD files including `mdis-`-tuned portions of code **will have such snippets displayed exactly as written (and tuned) in their source files**, regardless of any amendments you might make over reference copies of them in the .MD files.
 
 Now, below are examples of how `mdis-`-tuned JS code appears when referenced in an .MD file, as well as how non-supported language code gets imported when processed with _mdis_.
