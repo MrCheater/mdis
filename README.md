@@ -29,9 +29,9 @@ Using several  `mdis-start`/`mdis-stop` comments in the same code file will lead
 You can append your start/stop declarations with an arbitrary section name.  
 1. You must include the section name for **both starting and ending comment** of the respective section.  
 2. 🖇️ Named sections may follow one another _(see [Named sections](#named-sections))_, be nested, or overlap with one another _(see [Overlapping sections](#overlapping-sections))_.  
-3. The section names may only include **alphabetical characters in either case, digits, dashes, and underscores** (`A..Z, a..z, 0..9, -, _`).
-4. Portions of code with named `mdis-` sections will *appear in the .MD files under an extended URL*: `[mdis]:# (./path/file.js_#section-name)_` — as opposed to nameless `mdis-`-tuned portions of code: `[mdis]:# (./path/file.js)`.
-5. Portions of code with named `mdis-` sections will have a *code snippet name* set as `‍```lang title="section-name"`, with the exact same spelling and capitalization as in the respective `mdis-` comments.
+3. The section names may only include **alphabetical characters in either case, numerals, dashes, and underscores** (`A..Z, a..z, 0..9, -, _`).
+4. Portions of code with named `mdis-` sections will appear in the .MD files under an *extended URL*: `[mdis]:# (./path/file.js_#section-name)` — as opposed to nameless `mdis-`-tuned portions of code: `[mdis]:# (./path/file.js)`.
+5. Portions of code with named `mdis-` sections will have a *code snippet name* set as `title="section-name"`, with the exact same spelling and capitalization as given in the respective `mdis-` comments.
 
 ### 4. Using _mdis_ with unsupported languages ⚙️
 If you use _mdis_ with code in an unsupported language, you will only be able to embed the respective files' contents as a whole, with no visibility restrictions in force, regardless of whether you made the `mdis-` comments in them or not _(see [Raw import](#raw-import))_.
@@ -40,7 +40,7 @@ If you use _mdis_ with code in an unsupported language, you will only be able to
 To reference `mdis-`-tuned code in your .MD files through _mdis_ import,
 <!-- ❗💬 STEPS BELOW ARE MY SPECULATIONS ON HOW THIS SHOULD BE DONE; I SUPPOSE ONE WON'T WANT CODE IMPORTS INLINE, HENCE ADDING THESE "ADD NEW LINE" STEPS; ALSO, I'M ABSOLUTELY CONFUSED AS TO _HOW TO ACTUALLY RUN THE UTILITY ❗💬 -->
    1. Start at a new line;
-   2. Preface the MD link to the code file with `[mdis]`; Write down the code file link as you normally would;
+   2. Preface the MD link to the code file with `[mdis]`; then, write down the code file link like you normally would;
    3. Add a new line;
    4. Run _mdis_; <!-- ❗💬 HOW DOES ONE DO IT ❗💬 -->
    5. After the utility is done working, your
