@@ -84,8 +84,8 @@ class Point {
 
 export default Point
 `````
-⇓
-  
+> In an .MD file, `[mdis](./tests/files/simple.js)` will turn into:
+ 
 **🤖 .MD file after _mdis_ lib processing**
 `````markdown
 [mdis]:# (./tests/files/simple.js)
@@ -95,7 +95,7 @@ class Point {
 }
 ```
 `````
-
+  
 ### Named sections
 
 **📜 .JS file with `mdis-` comments**
@@ -111,7 +111,7 @@ class NamedBlocks extends React.PureComponent {
   // mdis-stop render
 }
 `````
-⇓
+> In an .MD file, `[mdis](./tests/files/named-blocks.js)` will turn into:
   
 **🤖 .MD file after _mdis_ lib processing**
 `````markdown
@@ -120,14 +120,14 @@ class NamedBlocks extends React.PureComponent {
 import React from 'react';
 ```
 
-[mdis]:# (./tests/named-blocks.js#render)
+[mdis]:# (./tests/files/named-blocks.js#render)
 ```js title="render"
 render() {
   return <div>Sample</div>;
 }
 ```
 `````
-
+  
 ### Overlapping sections
 
 **📜 .JS file with `mdis-` comments**
@@ -143,7 +143,7 @@ export default [
   // mdis-stop round
 ];
 `````
-⇓
+> In an .MD file, `[mdis](./tests/files/intersection.js)` will turn into:
   
 **🤖 .MD file after _mdis_ lib processing**
 `````markdown
@@ -161,7 +161,7 @@ export default [
 'lemon',
 ```
 `````
-
+  
 ### Raw import
 
 **📄 ._YAML_ file with `mdis-` comments**
@@ -174,7 +174,7 @@ docker:
     command: [mongod, --smallfiles]
   - image: postgres:9.4.1
 `````
-⇓
+> In an .MD file, `[mdis](./tests/files/config.yaml)` will turn into:
   
 **🤖 .MD file after _mdis_ lib processing**
 `````markdown
